@@ -251,6 +251,24 @@
             .bento-card:hover { transform: none; }
             .is-pressed { transform: none !important; }
         }
+
+        /* =========================================
+           TAMBAHAN: Animasi Logo Utama (Header)
+           ========================================= */
+        .animated-brand-logo {
+            width: 150px; /* Ukuran gambar diperkecil. Ubah angka ini jika ingin lebih besar/kecil */
+            height: auto; /* Menjaga proporsi gambar agar tidak gepeng */
+            animation: float-brand 3s infinite ease-in-out; /* Menerapkan animasi melayang */
+        }
+
+        /* Animasi bergerak naik turun di tempat */
+        @keyframes float-brand {
+            0% { transform: translateY(0px); } /* Titik awal, posisi normal */
+            50% { transform: translateY(-10px); } /* Di tengah animasi, logo naik 10 pixel */
+            100% { transform: translateY(0px); } /* Di akhir animasi, logo kembali turun */
+        }
+
+
     </style>
 </head>
 <body>
@@ -275,10 +293,10 @@
 
     <!-- Header Identitas Website -->
     <header class="site-header">
-        <div class="brand-badge">
-            <i class="fa-solid fa-cubes"></i>
-            <span>INFORMATIKA FUN</span>
-        </div>
+        
+        <!-- Elemen badge lama diganti dengan logo baru dari URL -->
+        <img src="https://cdn.phototourl.com/member/2026-10-20-301bf8f0-f5cd-4de0-a3fd-b9b3a2d0e3e0.png" alt="Logo Informatika Fun" class="animated-brand-logo">
+        
     </header>
 
     <!-- Konten Utama -->
