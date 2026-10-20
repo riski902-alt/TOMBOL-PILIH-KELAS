@@ -15,18 +15,19 @@
     
     <style>
         /* ==========================================================================
-           TEMA: INFORMATIKA FUN (DARK BLUE & MINT GREEN)
+           TEMA: INFORMATIKA FUN (DENIM BLUE & NAVY)
+           Disesuaikan dari index (2)_3.html
            ========================================================================== */
         
         :root {
-            --bg-main: #567C9C;        
-            --card-bg: #283E56;        
-            --accent-green: #78B89E;   
+            --bg-main: #4A7298;        /* Latar Belakang Denim Blue */
+            --card-bg: #1E3A5F;        /* Background Kartu Navy Blue */
+            --accent-green: #88D4AB;   /* Highlight Hijau Lembut */
             --text-light: #FFFFFF;     
             --text-muted: #E2E8F0;     
             
             --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-            --hover-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+            --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
             --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -80,11 +81,28 @@
         .node-1 { top: 20%; left: 50%; }
         .node-2 { bottom: 25%; right: 50%; }
 
-        /* 3. Header & Brand - Disempurnakan untuk mendekatkan logo dan konten */
+        /* 3. Header & Brand - Diposisikan di tengah atas */
         .site-header {
-            margin-top: 7.5rem; /* Logo didorong sedikit lebih ke bawah lagi */
-            margin-bottom: -1.5rem; /* Nilai negatif untuk menarik konten di bawahnya naik */
+            margin-top: 3rem; 
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             z-index: 1;
+        }
+
+        /* 9. Animasi & Ukuran Logo Utama */
+        .animated-brand-logo {
+            width: clamp(120px, 15vw, 180px); /* Ukuran responsif agar profesional */
+            height: auto; 
+            animation: float-brand 3s infinite ease-in-out; 
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+        }
+
+        @keyframes float-brand {
+            0% { transform: translateY(0px); } 
+            50% { transform: translateY(-10px); } 
+            100% { transform: translateY(0px); } 
         }
 
         /* 4. Konten Utama & Judul */
@@ -106,6 +124,7 @@
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 0.5rem;
+            margin-top: 1rem;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -127,8 +146,8 @@
 
         .bento-card {
             background: var(--card-bg);
-            border: 2px solid var(--accent-green);
-            border-radius: 16px; 
+            border: 3px solid var(--accent-green);
+            border-radius: 24px; 
             padding: 2.8rem 1.5rem; 
             cursor: pointer;
             position: relative;
@@ -144,9 +163,9 @@
         }
 
         .bento-card:hover, .bento-card:focus {
-            background: #304964; 
-            border-color: #92CDB5; 
-            transform: translateY(-5px);
+            background: #23436b; 
+            border-color: #A3E4C2; 
+            transform: translateY(-5px) scale(1.02);
             box-shadow: var(--hover-shadow);
         }
 
@@ -160,7 +179,7 @@
         }
 
         .bento-card:hover .small-icon {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(5deg);
         }
 
         .class-title {
@@ -175,14 +194,15 @@
         /* 6. Interaksi JavaScript */
         .is-pressed {
             transform: scale(0.96) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
         }
 
         .ripple-effect {
             position: absolute;
             border-radius: 50%;
-            background: rgba(120, 184, 158, 0.3); 
+            background: rgba(255, 255, 255, 0.3); 
             transform: scale(0);
-            animation: ripple-anim 0.6s linear;
+            animation: ripple-anim 0.5s linear;
             pointer-events: none;
         }
 
@@ -197,10 +217,18 @@
         .site-footer {
             margin-top: 3rem; 
             padding: 1.5rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
             z-index: 1;
+            text-align: center;
+            width: 100%;
+        }
+
+        .site-footer p {
+            font-size: 12px;
+            font-weight: 700;
+            color: #d1d5db; /* Abu-abu terang */
+            letter-spacing: 1px;
             opacity: 0.8;
+            margin: 0;
         }
 
         /* 8. Responsivitas */
@@ -219,7 +247,7 @@
                 gap: 1.2rem;
             }
             .main-title { font-size: 2.2rem; }
-            .site-header { margin-top: 3.5rem; margin-bottom: 0; } /* Penyesuaian jarak di layar HP */
+            .site-header { margin-top: 2rem; }
             .sub-title { font-size: 1rem; margin-bottom: 2rem; }
             .bg-floating-container { display: none; }
         }
@@ -229,19 +257,7 @@
             .bento-card { transition: none; }
             .bento-card:hover { transform: none; }
             .is-pressed { transform: none !important; }
-        }
-
-        /* 9. Animasi Logo Utama */
-        .animated-brand-logo {
-            width: 145px; 
-            height: auto; 
-            animation: float-brand 3s infinite ease-in-out; 
-        }
-
-        @keyframes float-brand {
-            0% { transform: translateY(0px); } 
-            50% { transform: translateY(-10px); } 
-            100% { transform: translateY(0px); } 
+            .animated-brand-logo { animation: none; }
         }
     </style>
 </head>
@@ -265,7 +281,7 @@
         <div class="bg-item dot-node node-2"></div>
     </div>
 
-    <!-- Header Identitas Website -->
+    <!-- Header Identitas Website & Logo -->
     <header class="site-header">
         <img src="https://cdn.phototourl.com/member/2026-10-20-301bf8f0-f5cd-4de0-a3fd-b9b3a2d0e3e0.png" alt="Logo Informatika Fun" class="animated-brand-logo">
     </header>
@@ -308,7 +324,7 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer yang Disempurnakan -->
     <footer class="site-footer">
         <p>INFORMATIKA FUN @ By: Riski Amalia, S.Pd</p>
     </footer>
