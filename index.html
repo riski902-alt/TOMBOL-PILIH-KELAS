@@ -16,24 +16,20 @@
     <style>
         /* ==========================================================================
            TEMA: INFORMATIKA FUN (DARK BLUE & MINT GREEN)
-           Sesuai Referensi Gambar Screenshot 2026-10-20 160452.png
            ========================================================================== */
         
         :root {
-            /* Palet Warna Sesuai Screenshot Baru */
-            --bg-main: #567C9C;        /* Biru medium untuk latar belakang halaman */
-            --card-bg: #283E56;        /* Biru dongker (navy) gelap untuk latar kartu */
-            --accent-green: #78B89E;   /* Hijau mint untuk ikon dan garis tepi kartu */
-            --text-light: #FFFFFF;     /* Putih untuk teks utama */
-            --text-muted: #E2E8F0;     /* Putih keabu-abuan untuk subjudul */
+            --bg-main: #567C9C;        
+            --card-bg: #283E56;        
+            --accent-green: #78B89E;   
+            --text-light: #FFFFFF;     
+            --text-muted: #E2E8F0;     
             
-            /* Bayangan & Transisi */
             --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
             --hover-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
             --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* 1. Reset & Background Dasar */
         body {
             background-color: var(--bg-main);
             color: var(--text-light);
@@ -47,14 +43,13 @@
             overflow-x: hidden;
         }
 
-        /* 2. Latar Belakang Animasi Informatika (Dibuat samar/putih) */
         .bg-floating-container {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             pointer-events: none;
             z-index: -1;
-            opacity: 0.1; /* Transparansi rendah agar tidak mengganggu teks */
-            color: #FFFFFF; /* Ubah ikon latar menjadi putih */
+            opacity: 0.1; 
+            color: #FFFFFF; 
             overflow: hidden;
         }
 
@@ -69,7 +64,6 @@
             100% { transform: translateY(-20px) rotate(5deg); }
         }
 
-        /* Penempatan elemen dekoratif */
         .bg-code { top: 15%; left: 10%; font-size: 1.5rem; }
         .bg-bracket { top: 30%; right: 15%; font-size: 2rem; }
         .bg-binary { bottom: 20%; left: 15%; font-size: 1.2rem; }
@@ -86,26 +80,12 @@
         .node-1 { top: 20%; left: 50%; }
         .node-2 { bottom: 25%; right: 50%; }
 
-        /* 3. Header & Brand (Disesuaikan agar serasi) */
+        /* 3. Header & Brand - Disempurnakan untuk mendekatkan logo dan konten */
         .site-header {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+            margin-top: 7.5rem; /* Logo didorong sedikit lebih ke bawah lagi */
+            margin-bottom: -15rem; /* Nilai negatif untuk menarik konten di bawahnya naik */
             z-index: 1;
         }
-
-        .brand-badge {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 8px 20px;
-            border-radius: 30px;
-            color: var(--text-light);
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .brand-badge i { color: var(--accent-green); }
 
         /* 4. Konten Utama & Judul */
         .main-container {
@@ -116,6 +96,9 @@
             box-sizing: border-box;
             z-index: 1;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
         }
 
         .main-title {
@@ -130,23 +113,23 @@
         .sub-title {
             color: var(--text-muted);
             font-size: 1.1rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem; 
             font-weight: 400;
         }
 
-        /* 5. Bento Grid - Tiga Tombol Kelas (Horizontal) */
+        /* 5. Bento Grid */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 2rem;
+            gap: 2.5rem; 
             width: 100%;
         }
 
         .bento-card {
             background: var(--card-bg);
             border: 2px solid var(--accent-green);
-            border-radius: 16px; /* Ujung agak membulat sesuai gambar */
-            padding: 3rem 1.5rem;
+            border-radius: 16px; 
+            padding: 2.8rem 1.5rem; 
             cursor: pointer;
             position: relative;
             overflow: hidden;
@@ -160,22 +143,20 @@
             user-select: none;
         }
 
-        /* Efek Hover Seragam (Warna Sedikit Terang) */
         .bento-card:hover, .bento-card:focus {
-            background: #304964; /* Biru navy lebih terang sedikit saat di-hover */
-            border-color: #92CDB5; /* Hijau mint lebih terang */
+            background: #304964; 
+            border-color: #92CDB5; 
             transform: translateY(-5px);
             box-shadow: var(--hover-shadow);
         }
 
-        /* Ikon Dekoratif di dalam Kartu */
         .decor-icons {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.8rem; 
+            margin-bottom: 1.2rem;
             display: flex;
             gap: 15px;
             transition: var(--transition-smooth);
-            color: var(--accent-green); /* Sesuai warna hijau di gambar */
+            color: var(--accent-green); 
         }
 
         .bento-card:hover .small-icon {
@@ -185,13 +166,13 @@
         .class-title {
             color: var(--text-light);
             margin: 0;
-            font-size: 1.6rem;
+            font-size: 1.7rem; 
             font-weight: 700;
             letter-spacing: 1px;
-            z-index: 1; /* Pastikan di atas ripple */
+            z-index: 1; 
         }
 
-        /* 6. Interaksi JavaScript & Efek Ripple */
+        /* 6. Interaksi JavaScript */
         .is-pressed {
             transform: scale(0.96) !important;
         }
@@ -199,7 +180,7 @@
         .ripple-effect {
             position: absolute;
             border-radius: 50%;
-            background: rgba(120, 184, 158, 0.3); /* Riak warna hijau mint transparan */
+            background: rgba(120, 184, 158, 0.3); 
             transform: scale(0);
             animation: ripple-anim 0.6s linear;
             pointer-events: none;
@@ -214,37 +195,35 @@
 
         /* 7. Footer */
         .site-footer {
-            margin-top: 4rem;
-            padding: 2rem;
+            margin-top: 3rem; 
+            padding: 1.5rem;
             color: var(--text-muted);
             font-size: 0.9rem;
             z-index: 1;
             opacity: 0.8;
         }
 
-        /* 8. Responsivitas untuk Tablet dan Ponsel */
+        /* 8. Responsivitas */
         @media (max-width: 992px) {
-            .bento-grid {
-                gap: 1.5rem;
-            }
+            .bento-grid { gap: 1.5rem; }
             .main-title { font-size: 2.8rem; }
-            .bento-card { padding: 2.5rem 1rem; }
-            .class-title { font-size: 1.4rem; }
+            .bento-card { padding: 2rem 1rem; }
+            .class-title { font-size: 1.5rem; }
         }
 
         @media (max-width: 768px) {
-            /* Pada layar kecil, susun menjadi vertikal */
             .bento-grid {
                 grid-template-columns: 1fr;
                 max-width: 400px;
                 margin: 0 auto;
+                gap: 1.2rem;
             }
             .main-title { font-size: 2.2rem; }
-            .sub-title { font-size: 1rem; margin-bottom: 2.5rem; }
-            .bg-floating-container { display: none; /* Kurangi beban visual di HP */ }
+            .site-header { margin-top: 3.5rem; margin-bottom: 0; } /* Penyesuaian jarak di layar HP */
+            .sub-title { font-size: 1rem; margin-bottom: 2rem; }
+            .bg-floating-container { display: none; }
         }
 
-        /* Aksesibilitas (Prefers Reduced Motion) */
         @media (prefers-reduced-motion: reduce) {
             .bg-item { animation: none; }
             .bento-card { transition: none; }
@@ -252,23 +231,18 @@
             .is-pressed { transform: none !important; }
         }
 
-        /* =========================================
-           TAMBAHAN: Animasi Logo Utama (Header)
-           ========================================= */
+        /* 9. Animasi Logo Utama */
         .animated-brand-logo {
-            width: 150px; /* Ukuran gambar diperkecil. Ubah angka ini jika ingin lebih besar/kecil */
-            height: auto; /* Menjaga proporsi gambar agar tidak gepeng */
-            animation: float-brand 3s infinite ease-in-out; /* Menerapkan animasi melayang */
+            width: 145px; 
+            height: auto; 
+            animation: float-brand 3s infinite ease-in-out; 
         }
 
-        /* Animasi bergerak naik turun di tempat */
         @keyframes float-brand {
-            0% { transform: translateY(0px); } /* Titik awal, posisi normal */
-            50% { transform: translateY(-10px); } /* Di tengah animasi, logo naik 10 pixel */
-            100% { transform: translateY(0px); } /* Di akhir animasi, logo kembali turun */
+            0% { transform: translateY(0px); } 
+            50% { transform: translateY(-10px); } 
+            100% { transform: translateY(0px); } 
         }
-
-
     </style>
 </head>
 <body>
@@ -293,10 +267,7 @@
 
     <!-- Header Identitas Website -->
     <header class="site-header">
-        
-        <!-- Elemen badge lama diganti dengan logo baru dari URL -->
         <img src="https://cdn.phototourl.com/member/2026-10-20-301bf8f0-f5cd-4de0-a3fd-b9b3a2d0e3e0.png" alt="Logo Informatika Fun" class="animated-brand-logo">
-        
     </header>
 
     <!-- Konten Utama -->
@@ -310,7 +281,6 @@
         <!-- Bento Grid 3 Tombol Kelas -->
         <section class="bento-grid">
             
-            <!-- Tombol Kelas VII -->
             <div class="bento-card card-vii" data-url="https://riski902-alt.github.io/MATERIKELASVII/" role="button" tabindex="0" aria-label="Pilih Kelas VII">
                 <div class="decor-icons">
                     <i class="fa-solid fa-laptop small-icon"></i>
@@ -319,7 +289,6 @@
                 <h2 class="class-title">KELAS VII</h2>
             </div>
 
-            <!-- Tombol Kelas VIII -->
             <div class="bento-card card-viii" data-url="https://riski902-alt.github.io/MATERIKELASVIII/" role="button" tabindex="0" aria-label="Pilih Kelas VIII">
                 <div class="decor-icons">
                     <i class="fa-solid fa-code small-icon"></i>
@@ -328,7 +297,6 @@
                 <h2 class="class-title">KELAS VIII</h2>
             </div>
 
-            <!-- Tombol Kelas IX -->
             <div class="bento-card card-ix" data-url="https://riski902-alt.github.io/MATERIKELASIX/" role="button" tabindex="0" aria-label="Pilih Kelas IX">
                 <div class="decor-icons">
                     <i class="fa-solid fa-microchip small-icon"></i>
@@ -351,12 +319,10 @@
             const cards = document.querySelectorAll('.bento-card');
 
             cards.forEach(card => {
-                // Event Listener untuk Klik Mouse & Sentuhan Layar
                 card.addEventListener('click', function (e) {
                     handleNavigation(this, e);
                 });
 
-                // Aksesibilitas Keyboard (Tekan Enter atau Space)
                 card.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
@@ -365,28 +331,18 @@
                 });
             });
 
-            /**
-             * Menangani efek animasi klik/press dan navigasi halaman
-             */
             function handleNavigation(cardElement, event) {
                 const targetUrl = cardElement.getAttribute('data-url');
                 if (!targetUrl) return;
 
-                // 1. Jalankan Efek Press / Bounce
                 cardElement.classList.add('is-pressed');
-
-                // 2. Buat Efek Ripple Lembut
                 createRipple(cardElement, event);
 
-                // 3. Berpindah Halaman Setelah Animasi Selesai (300ms)
                 setTimeout(() => {
                     window.location.href = targetUrl;
                 }, 300);
             }
 
-            /**
-             * Membuat efek riak (ripple effect) secara dinamis pada kartu
-             */
             function createRipple(card, event) {
                 const circle = document.createElement('span');
                 const diameter = Math.max(card.clientWidth, card.clientHeight);
@@ -394,7 +350,6 @@
 
                 const rect = card.getBoundingClientRect();
                 
-                // Menghitung posisi klik (jika lewat keyboard, posisikan di tengah)
                 const clientX = event.clientX || (rect.left + rect.width / 2);
                 const clientY = event.clientY || (rect.top + rect.height / 2);
 
@@ -403,7 +358,6 @@
                 circle.style.top = `${clientY - rect.top - radius}px`;
                 circle.classList.add('ripple-effect');
 
-                // Hapus elemen ripple lama jika ada
                 const existingRipple = card.querySelector('.ripple-effect');
                 if (existingRipple) {
                     existingRipple.remove();
